@@ -1,35 +1,21 @@
-import * as React from "react";
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-
 import { navMenu } from "@/data/Data";
 import SignInButton from "./SignInButton";
 
 export function NavMenu() {
   return (
-    <NavigationMenu className="hidden lg:flex items-center gap-8 ml-auto">
-      <NavigationMenuList className="flex-wrap text-primary-black font-[550]">
+    <nav className="hidden lg:flex items-center gap-8 ml-auto">
+      <ul className="flex items-center gap-5 font-[550]">
         {navMenu.map((nav, index) => {
           return (
-            <NavigationMenuItem key={index}>
-              <NavigationMenuLink
-                asChild
-                className="text-[17px] bg-transparent hover:text-primary-red! hover:bg-transparent!"
-              >
-                <a href={nav.href}>{nav.title}</a>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            <li key={index}>
+              <a href={nav.href} className="link">
+                {nav.title}
+              </a>
+            </li>
           );
         })}
-      </NavigationMenuList>
+      </ul>
       <SignInButton />
-    </NavigationMenu>
+    </nav>
   );
 }

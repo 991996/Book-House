@@ -4,7 +4,7 @@ import { NavMenu } from "./NavigationMenu";
 
 import { useState, useEffect } from "react";
 
-function Header() {
+function Header({ className }) {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -16,25 +16,23 @@ function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  console.log(isSticky);
 
   return (
-    <div className="mt-6">
-      <div className=" w-[90%] xl:w-[80%] mx-auto">
-        <div
-          className={` w-full flex justify-between items-center duration-500 ${
-            isSticky
-              ? "fixed bg-primary-blue shadow-xl py-1 top-0 left-0 px-5 md:px-8 lg:px-6 xl:px-40 z-50"
-              : ""
-          }`}
-        >
-          <Logo isSticky={isSticky} />
-          <NavMenu />
-          <div className="flex gap-4">
-            <MobileMenu />
-          </div>
+    <div className={className}>
+      <div
+        className={` w-full flex justify-between items-center duration-500 ${
+          isSticky
+            ? "fixed bg-primary-baige shadow-xl py-1 top-0 left-0 px-5 md:px-8 lg:px-6 xl:px-40 z-50"
+            : ""
+        }`}
+      >
+        <Logo isSticky={isSticky} />
+        <NavMenu />
+        <div className="flex gap-4">
+          <MobileMenu />
         </div>
       </div>
-      <hr className="border-white/20" />
     </div>
   );
 }

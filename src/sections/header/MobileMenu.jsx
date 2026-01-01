@@ -41,13 +41,16 @@ function MobileMenu() {
           <nav className="flex flex-col gap-4 mt-6 text-primary-black">
             {navMenu.map((nav, index) => {
               return (
-                <a
-                  key={index}
-                  className="text-[17px] font-medium hover:underline cursor-pointer"
-                  href={nav.href}
-                >
-                  {nav.title}
-                </a>
+                <>
+                  <a
+                    key={index}
+                    className="text-[17px] font-medium hover:underline cursor-pointer"
+                    href={nav.href}
+                  >
+                    {nav.title}
+                  </a>
+                  <hr />
+                </>
               );
             })}
           </nav>
