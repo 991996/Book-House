@@ -3,12 +3,13 @@ import Header from "./sections/header/Header";
 import Featuers from "./sections/home/Featuers";
 import Home from "./sections/home/Home";
 import OurTracks from "./sections/ourTracks/OurTracks";
+import PremiumLearning from "./sections/Premium Learning/PremiumLearning";
 
 function App() {
   return (
     <div className="pb-50">
       <div className=" relative">
-        <Header className=" absolute top-10 w-[90%] xl:w-[80%] left-1/2 -translate-x-1/2" />
+        <Header />
         <Home />
       </div>
       <div className=" relative">
@@ -16,6 +17,7 @@ function App() {
       </div>
 
       <OurTracks />
+      <PremiumLearning />
     </div>
   );
 }
