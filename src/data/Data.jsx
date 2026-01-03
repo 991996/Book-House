@@ -1,6 +1,6 @@
 export const contactInfo = {
-  email: "email.com",
-  phoneNumber: "8888888",
+  email: "rkcode99@gmail.com",
+  phoneNumber: "+97433820090",
 };
 
 export const navMenu = [
@@ -17,8 +17,8 @@ export const navMenu = [
     href: "#courses",
   },
   {
-    title: "Our services",
-    href: "#services",
+    title: "Our Teachers",
+    href: "#teachers",
   },
   {
     title: "Contsct us",

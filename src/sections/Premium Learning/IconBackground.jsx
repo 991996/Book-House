@@ -4,10 +4,21 @@ import icon3 from "@/assets/Group-2.png";
 import icon4 from "@/assets/Group-3.png";
 import icon5 from "@/assets/Group-4.png";
 import icon6 from "@/assets/Group-5.png";
+import { motion } from "framer-motion";
 
 export default function IconBackground() {
   return (
-    <div className=" absolute w-full h-full inset-0">
+    <motion.div
+      initial={{ x: 5, y: 0 }}
+      animate={{ x: -5, y: -5 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
+      className=" absolute w-full h-full inset-0"
+    >
       <div className=" relative w-full h-full">
         <img src={icon1} className=" absolute bottom-0 right-4 w-15" />
         <img src={icon2} className=" absolute top-10 left-0 w-15" />
@@ -16,6 +27,6 @@ export default function IconBackground() {
         <img src={icon5} className=" absolute bottom-10 -left-4 w-15" />
         <img src={icon6} className=" absolute bottom-25 -right-6 w-15" />
       </div>
-    </div>
+    </motion.div>
   );
 }

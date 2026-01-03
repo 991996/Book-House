@@ -6,7 +6,15 @@ import { FaStar } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import arrow from "@/assets/Tracks section/arrow.svg";
 import lamp from "@/assets/Tracks section/lamp.svg";
+import lamp2 from "@/assets/Tracks section/lamp2.png";
+import { useState, useEffect, useRef } from "react";
+// eslint-disable-next-line no-unused-vars
+import { motion, useInView } from "framer-motion";
+
 export default function OurTracks() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   const tracksList = [
     {
       image: track1,
@@ -39,8 +47,19 @@ export default function OurTracks() {
       sales: 180,
     },
   ];
+
+  const [lampImage, setLampImage] = useState(lamp);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLampImage((prev) => (prev === lamp ? lamp2 : lamp));
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div
+    <section
+      id="courses"
       className=" relative flex flex-col justify-center gap-8 lg:gap-12 mb-30
     w-[90%] xl:w-[80%] mx-auto mt-90 sm:mt-100 md:mt-70 xl:mt-50"
     >
@@ -50,7 +69,7 @@ export default function OurTracks() {
       </div>
       {/* LAMP */}
       <div className="w-30 absolute -left-20 -top-10">
-        <img src={lamp} />
+        <img src={lampImage} />
       </div>
       {/* Title */}
       <div className="flex flex-col gap-2 text-center">
@@ -59,12 +78,18 @@ export default function OurTracks() {
           Lorem Ipsum is simply dummy text of the printing.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <motion.div
+        ref={ref}
+        initial={{ x: -80, opacity: 0 }}
+        animate={isInView ? { x: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+      >
         {tracksList.map((track, index) => {
           return <Track key={index} track={track} />;
         })}
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 }
 

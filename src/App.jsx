@@ -1,13 +1,35 @@
 import "./App.css";
+import Footer from "./sections/Footer";
 import Header from "./sections/header/Header";
 import Featuers from "./sections/home/Featuers";
 import Home from "./sections/home/Home";
 import OurTracks from "./sections/ourTracks/OurTracks";
 import PremiumLearning from "./sections/Premium Learning/PremiumLearning";
+import Students from "./sections/students/Students";
+import Subscribe from "./sections/Subscribe";
+import Teachers from "./teacher/Teachers";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-primary-baige z-50">
+        <span class="loader"></span>
+      </div>
+    );
+  }
+
   return (
-    <div className="pb-50">
+    <div>
       <div className=" relative">
         <Header />
         <Home />
@@ -18,6 +40,10 @@ function App() {
 
       <OurTracks />
       <PremiumLearning />
+      <Students />
+      <Teachers />
+      <Subscribe />
+      <Footer />
     </div>
   );
 }
