@@ -61,7 +61,7 @@ export default function OurTracks() {
     <section
       id="courses"
       className=" relative flex flex-col justify-center gap-8 lg:gap-12 mb-30
-    w-[90%] xl:w-[80%] mx-auto mt-90 sm:mt-100 md:mt-70 xl:mt-50"
+    w-[90%] xl:w-[80%] mx-auto mt-110 sm:mt-100 md:mt-70 xl:mt-50"
     >
       {/* ARROW */}
       <div className="w-30 absolute -right-20 -top-10">
